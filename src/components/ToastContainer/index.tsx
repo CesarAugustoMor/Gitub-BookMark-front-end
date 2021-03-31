@@ -15,9 +15,7 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ messages }) => {
     messages,
     // message => message.id,
     {
-      key: message => {
-        return message.id;
-      },
+      key: message => message.id,
       from: { right: '-120%', opacity: 0 },
       enter: { right: '0%', opacity: 1 },
       leave: { right: '-120%', opacity: 0 },
@@ -26,9 +24,9 @@ const ToastContainer: React.FC<ToastContainerProps> = ({ messages }) => {
 
   return (
     <Container>
-      {messagesWithTransitions((props, item, _transition, index) => {
-        return <Toast key={index} toast={item} style={props} />;
-      })}
+      {messagesWithTransitions((props, item, _transition, index) => (
+        <Toast key={index} toast={item} style={props} />
+      ))}
     </Container>
   );
 };
