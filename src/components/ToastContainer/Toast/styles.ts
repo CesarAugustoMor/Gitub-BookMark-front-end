@@ -9,7 +9,7 @@ interface ContainerProps {
 const containerTypeVariations = {
   info: css`
     background: #ebf8ff;
-    color: #3172b7;
+    color: ${props => props.theme.colors.blue};
   `,
   success: css`
     background: #e6fffa;
@@ -17,7 +17,7 @@ const containerTypeVariations = {
   `,
   error: css`
     background: #fddede;
-    color: #c53030;
+    color: ${props => props.theme.colors.error};
   `,
 };
 
@@ -35,9 +35,7 @@ export const Container = styled(animated.div)<ContainerProps>`
     margin-top: 8px;
   }
 
-  ${props => {
-    return containerTypeVariations[props.type || 'info'];
-  }}
+  ${props => containerTypeVariations[props.type || 'info']}
 
   > svg {
     margin: 4px 12px 0 0;
@@ -64,15 +62,12 @@ export const Container = styled(animated.div)<ContainerProps>`
     color: inherit;
   }
 
-  ${props => {
-    return (
-      !props.hasDescription &&
-      css`
-        align-items: center;
-        svg {
-          margin-top: 0;
-        }
-      `
-    );
-  }}
+  ${props =>
+    !props.hasDescription &&
+    css`
+      align-items: center;
+      svg {
+        margin-top: 0;
+      }
+    `}
 `;
