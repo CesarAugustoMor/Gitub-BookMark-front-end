@@ -4,9 +4,10 @@ export default {
     primary: '#468189',
     secundary: '#CBD2DC',
     text: '#253237',
+    textSecundary: '#9EABBE',
     background: '#EDEFF2',
     blue: '#023E7D',
-    card: '#0C2128',
+    card: '#CBD2DC',
     error: '#c53030',
   },
 };
