@@ -5,21 +5,23 @@ import { Link } from 'react-router-dom';
 
 import { useTheme } from '../../hooks/theme';
 
-import tmp from '../../assets/broken_robot_120px.png';
+import { Container, Head } from './styles';
+import { useAuth } from '../../hooks/auth';
 
-import { Container, Header } from './styles';
-
-const Head: React.FC = () => {
+const Header: React.FC = () => {
   const { toogleTheme } = useTheme();
   const { title, colors } = useContext(ThemeContext);
+  const { user } = useAuth();
 
   return (
     <Container>
-      <Header>
-        <h1>Github Bookmark</h1>
+      <Head>
         <Link to="/">
-          <img src={tmp} alt="tmp" />
-          <strong>João das Colves</strong>
+          <h1>Github Bookmark</h1>
+        </Link>
+        <Link to="/perfil">
+          <img src={user.avatar_url} alt={user.name} />
+          <strong>{user.name}</strong>
         </Link>
         <div>
           <Switch
@@ -37,9 +39,9 @@ const Head: React.FC = () => {
           />
           <span>{title}</span>
         </div>
-      </Header>
+      </Head>
     </Container>
   );
 };
 
-export default Head;
+export default Header;

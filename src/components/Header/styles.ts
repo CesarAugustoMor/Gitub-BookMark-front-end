@@ -13,7 +13,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Header = styled.div`
+export const Head = styled.div`
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
