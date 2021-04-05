@@ -26,7 +26,7 @@ interface GitUser {
   login: string;
   avatar_url: string;
   html_url: string;
-  name: string;
+  name?: string;
   public_repos: number;
   followers: number;
 }
@@ -116,7 +116,7 @@ const Details: React.FC = () => {
             <b>Nº de repositórios:</b>
           </Legenda>
           <Data>
-            <div>{gitUser.name}</div>
+            <div>{gitUser.name || 'Nome não disponivel'}</div>
             <div>{gitUser.login}</div>
             <div>{gitUser.followers}</div>
             <div>{gitUser.public_repos}</div>
