@@ -31,8 +31,8 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
-    const token = localStorage.getItem('@GitHubBookmark:token');
-    const user = localStorage.getItem('@GitHubBookmark:user');
+    const token = sessionStorage.getItem('@GitHubBookmark:token');
+    const user = sessionStorage.getItem('@GitHubBookmark:user');
 
     if (token && user) {
       api.defaults.headers.authorization = `Bearer ${token}`;
@@ -50,8 +50,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     });
 
     const { token, user } = response.data;
-    localStorage.setItem('@GitHubBookmark:token', token);
-    localStorage.setItem('@GitHubBookmark:user', JSON.stringify(user));
+    sessionStorage.setItem('@GitHubBookmark:token', token);
+    sessionStorage.setItem('@GitHubBookmark:user', JSON.stringify(user));
 
     api.defaults.headers.authorization = `Bearer ${token}`;
 
@@ -59,15 +59,15 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const signOut = useCallback(() => {
-    localStorage.removeItem('@GitHubBookmark:token');
-    localStorage.removeItem('@GitHubBookmark:user');
+    sessionStorage.removeItem('@GitHubBookmark:token');
+    sessionStorage.removeItem('@GitHubBookmark:user');
 
     setData({} as AuthState);
   }, []);
 
   const updateUser = useCallback(
     (user: User) => {
-      localStorage.setItem('@GitHubBookmark:user', JSON.stringify(user));
+      sessionStorage.setItem('@GitHubBookmark:user', JSON.stringify(user));
 
       setData({
         token: data.token,

@@ -12,6 +12,7 @@ declare module 'styled-components' {
       blue: string;
       card: string;
       error: string;
+      orange: string;
     };
   }
 }

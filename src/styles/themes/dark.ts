@@ -9,5 +9,6 @@ export default {
     blue: '#023E7D',
     card: '#0C2128',
     error: '#c53030',
+    orange: '#FF9100',
   },
 };
