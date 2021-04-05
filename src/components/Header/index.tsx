@@ -11,6 +11,7 @@ import { useAuth } from '../../hooks/auth';
 const Header: React.FC = () => {
   const { toogleTheme } = useTheme();
   const { title, colors } = useContext(ThemeContext);
+
   const { user } = useAuth();
 
   return (

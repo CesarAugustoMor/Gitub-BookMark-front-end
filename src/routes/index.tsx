@@ -9,6 +9,7 @@ import SignUp from '../pages/SignUp';
 import NotFound from '../pages/NotFound';
 import Dashboard from '../pages/Dashboard';
 import Details from '../pages/Details';
+import Profile from '../pages/Profile';
 
 import GlobalStyle from '../styles/global';
 
@@ -24,6 +25,7 @@ const Routes: React.FC = () => {
 
         <Route component={Dashboard} path="/dashboard" isPrivate />
         <Route component={Details} path="/detalhes/:user" isPrivate />
+        <Route component={Profile} path="/perfil" isPrivate />
         <Route component={NotFound} path="/" />
       </Switch>
 
