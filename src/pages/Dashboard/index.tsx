@@ -83,7 +83,7 @@ const Dashboard: React.FC = () => {
         });
 
         const gitResponse = await apiGit.get<GitSearch>(
-          `/search/users?per_page=6&q=${data.name}`,
+          `/search/users?q=${data.name}`,
         );
 
         setGitUsers(gitResponse.data.items);

@@ -141,34 +141,38 @@ const Details: React.FC = () => {
         <h1>Atividades recentes: </h1>
         <Feed>
           <table>
-            <tr>
-              <th>Tipo</th>
-              <th>Repositório</th>
-              <th>Data:</th>
-            </tr>
-            {gitUserEvents.map(gitUserEvent => (
-              <tr key={gitUserEvent.id}>
-                <td>{gitUserEvent.type}</td>
-                <td>
-                  <a
-                    href={`https://github.com/${gitUserEvent.repo.name}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {gitUserEvent.repo.name}
-                  </a>
-                </td>
-                <td>
-                  {format(
-                    new Date(gitUserEvent.created_at),
-                    'dd/MM/yyyy HH:mm',
-                    {
-                      locale: ptBr,
-                    },
-                  )}
-                </td>
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Repositório</th>
+                <th>Data:</th>
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {gitUserEvents.map(gitUserEvent => (
+                <tr key={gitUserEvent.id}>
+                  <td>{gitUserEvent.type}</td>
+                  <td>
+                    <a
+                      href={`https://github.com/${gitUserEvent.repo.name}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {gitUserEvent.repo.name}
+                    </a>
+                  </td>
+                  <td>
+                    {format(
+                      new Date(gitUserEvent.created_at),
+                      'dd/MM/yyyy HH:mm',
+                      {
+                        locale: ptBr,
+                      },
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </Feed>
       </Container>

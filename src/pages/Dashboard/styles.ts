@@ -5,13 +5,25 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 1120px;
+  width: 90%;
   margin: 64px auto;
   display: grid;
   grid-template-columns: 4fr 3fr;
+  grid-template-areas: 'search favorite';
   grid-gap: 32px;
+
+  @media (max-width: 1310px) {
+    margin: 64px auto 0 auto;
+
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'search'
+      'favorite';
+  }
 `;
 
 export const Content = styled.main`
+  grid-area: search;
   ul {
     max-height: 60rem;
     margin-top: 4rem;
@@ -62,8 +74,8 @@ export const BannerUser = styled.li`
     strong {
       font-style: normal;
       font-weight: 500;
-      font-size: 20px;
-      line-height: 26px;
+      font-size: 2rem;
+      line-height: 2.6rem;
     }
   }
 
@@ -73,6 +85,7 @@ export const BannerUser = styled.li`
 `;
 
 export const Favorites = styled.aside`
+  grid-area: favorite;
   h1 {
     font-style: normal;
     font-weight: 900;
@@ -104,7 +117,7 @@ export const Favorites = styled.aside`
 
 export const BannerFavorite = styled(Link)`
   height: 8.8rem;
-  width: 48rem;
+  width: 100%;
   border-radius: 10px;
   background: ${props => props.theme.colors.card};
 
