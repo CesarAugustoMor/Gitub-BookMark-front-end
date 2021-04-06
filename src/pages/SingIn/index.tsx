@@ -10,10 +10,12 @@ import Input from '../../components/Input';
 
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
+import { useTheme } from '../../hooks/theme';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
 import logo from '../../assets/logo.svg';
+import logoDark from '../../assets/GithubBookmarkDark.svg';
 
 import { AnimatedContainer, Container } from './styles';
 
@@ -27,6 +29,7 @@ const SignIn: React.FC = () => {
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
+  const { theme } = useTheme();
   const history = useHistory();
 
   const handlesubmit = useCallback(
@@ -71,7 +74,10 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <AnimatedContainer>
-        <img src={logo} alt="GitHub BookMark" />
+        <img
+          src={theme.title === 'dark' ? logoDark : logo}
+          alt="GitHub BookMark"
+        />
 
         <Form ref={formRef} onSubmit={handlesubmit}>
           <h1>Faça seu logon</h1>

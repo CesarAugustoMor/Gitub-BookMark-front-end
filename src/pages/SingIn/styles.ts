@@ -1,10 +1,19 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 import gitHub from '../../assets/gitHub.svg';
+import gitHubDark from '../../assets/gitHubDark.svg';
 
 export const Container = styled.div`
-  background: url(${gitHub}) no-repeat center top;
+  ${props =>
+    props.theme.title === 'dark'
+      ? css`
+          background: url(${gitHubDark}) no-repeat center top; ;
+        `
+      : css`
+          background: url(${gitHub}) no-repeat center top; ;
+        `};
+
   height: 100vh;
   display: flex;
   flex-direction: column;

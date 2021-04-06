@@ -9,7 +9,7 @@ interface ContainerProps {
 const containerTypeVariations = {
   info: css`
     background: #ebf8ff;
-    color: ${props => props.theme.colors.blue};
+    color: #023e7d;
   `,
   success: css`
     background: #e6fffa;
@@ -17,7 +17,7 @@ const containerTypeVariations = {
   `,
   error: css`
     background: #fddede;
-    color: ${props => props.theme.colors.error};
+    color: #c53030;
   `,
 };
 
